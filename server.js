@@ -1,5 +1,8 @@
 const express = require("express");
 
+// require for Facebook login
+const path = require("path");
+
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -17,6 +20,10 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactexpenselist");
+
+//Facebook login API
+// app.use(express.static(path.resolve(__dirname, '/')))
+
 
 // Start the API server
 app.listen(PORT, function() {

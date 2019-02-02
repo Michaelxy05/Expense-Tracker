@@ -1,18 +1,18 @@
-import * as firebase from "firebase";
+//import * as firebase from "firebase";
 
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAHEz-HgcH4mhme2bAPFaK7YUMHcLaLRuk",
-    authDomain: "queenbelladrama.firebaseapp.com",
-    databaseURL: "https://queenbelladrama.firebaseio.com",
+ // var config = {
+ //   apiKey: "AIzaSyAHEz-HgcH4mhme2bAPFaK7YUMHcLaLRuk",
+  //  authDomain: "queenbelladrama.firebaseapp.com",
+  //  databaseURL: "https://queenbelladrama.firebaseio.com",
     projectId: "queenbelladrama",
-    storageBucket: "queenbelladrama.appspot.com",
-    messagingSenderId: "62006215142"
-  };
-  firebase.initializeApp(config);
+   // storageBucket: "queenbelladrama.appspot.com",
+  //  messagingSenderId: "62006215142"
+  //};
+  //firebase.initializeApp(config);
 
 
-if (!firebase.apps.length) {
+//if (!firebase.apps.length) {
     firebase.initializeApp(config);
 }
 

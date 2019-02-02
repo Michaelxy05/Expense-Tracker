@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 
-   Initialize Firebase
+   
   var config = {
    apiKey: "AIzaSyAHEz-HgcH4mhme2bAPFaK7YUMHcLaLRuk",
     authDomain: "queenbelladrama.firebaseapp.com",
@@ -15,11 +15,6 @@ import * as firebase from "firebase";
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
 }
-
-
-
-
-
 
 
 const db = firebase.database();

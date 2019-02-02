@@ -93,18 +93,18 @@ const doCreateSettingsForUser = (uid, font, mode, currency, travelMode, fromCurr
         monthLimit
     });
 
-//  const expensesRef = db.ref('expenses')
-//     expensesRef.on('child_removed', function (data) {
-//         console.log("child_removed")
-//     });
+ const expensesRef = db.ref('expenses')
+  expensesRef.on('child_removed', function (data) {
+       console.log("child_removed")
+   });
 
-// const allExpenses = () => {
-//     return onceGetExpenses().then((data) => {
-//          console.log(data.val())
-//         }).catch(error => {
-//             console.log(error)
-//         });
-// }
+const allExpenses = () => {
+   return onceGetExpenses().then((data) => {
+         console.log(data.val())
+       }).catch(error => {
+            console.log(error)
+        });
+ }
 
 export {
     doCreateUser,

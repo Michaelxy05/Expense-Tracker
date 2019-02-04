@@ -4,7 +4,7 @@ import Expenses from "./pages/Expenses";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-
+import Google from "../src/components/Google";
 function App() {
   return (
     <Router>

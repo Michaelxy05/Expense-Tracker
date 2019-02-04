@@ -44,11 +44,11 @@
     background: #43a047;
 }
 
-///. {
-    //background-image:url(./images/office-pen-calculator-computation-163032-1.jpg) !important;
+ { 
+    background-image:url(./images/office-pen-calculator-computation-163032-1.jpg) !important;
     color: #ddd !important;
     padding: 15px;
-   // cursor: pointer;
+    cursor: pointer;
 }
 
 . {

@@ -6,7 +6,7 @@ import React from "react";
 export function Container({ fluid, children }) {
   return <div className={`container${fluid ? "-fluid" : ""}`}>{children}</div>;
 }
-
+// This is what i need to export to the other page?  
 // This Row component lets us use a bootstrap row without having to think about class names
 export function Row({ fluid, children }) {
   return <div className={`row${fluid ? "-fluid" : ""}`}>{children}</div>;
@@ -14,6 +14,7 @@ export function Row({ fluid, children }) {
 
 // This Col component lets us size bootstrap columns with less syntax
 // e.g. <Col size="md-12"> instead of <div className="col-md-12">
+// how do i export this to its own page? or to take place of the cards on `NoMatch.js`
 export function Col({ size, children }) {
   return (
     <div

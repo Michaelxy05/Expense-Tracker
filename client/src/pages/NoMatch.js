@@ -1,42 +1,45 @@
 import React from "react";
-import { Col, Row, Container } from "../components/Grid";
-//import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
+import { Col } from "../components/Grid";
+import Jumbotron from "../components/Jumbotron";
+
+
+import  {List, ListItem }  from "../components/List";
+
+import { Link } from "react-router-dom"; 
+import  DeleteBtn  from "../components/DeleteBtn"; 
 
 function NoMatch() {
   
   return (
-    <Container fluid>
-      <Row>
-        <Col size="md-4">
-          
-            <Card 
-            title="This is my first card"
-            subtitle="This is the subtitle"
-            text="This is the text"
-            />
-          
-        </Col>
-        <Col size="md-4">
-          
-            <Card 
-            title="This is my second card"
-            subtitle="This is the subtitle"
-            text="This is the text"
-            />
-          
-        </Col>
-        <Col size="md-4">
-          
-            <Card 
-            title="This is my third card"
-            subtitle="This is the subtitle"
-            text="This is the text"
-            />
-          
-        </Col>
-      </Row>
-    </Container>
+
+      <Col size="md-12 sm-12">
+<Jumbotron>
+  <h1>Expenses On My List</h1>
+</Jumbotron>
+{this.state.expenses.length ? (
+  <List>
+    {this.state.expenses.map(expense => (
+      <ListItem key={expense._id}>
+        <Link to={"/expenses/" + expense._id}>
+          <strong>
+          <a> $ {expense.amount} used for {expense.reason} </a>
+          <br></br>
+          <a> {expense.date} </a>
+          </strong>
+        </Link>
+        <DeleteBtn onClick={() => this.deleteExpense(expense._id)} />
+      </ListItem>
+    ))}
+  </List>
+) : (
+  <h3>No Results to Display</h3>
+)}
+</Col>
+
+
+   
+   
+
   );
 }
 

@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Col } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import Jumbotron from "../components/Jumbotron"; 
+import DeleteBtn from "../components/DeleteBtn"; 
+import Graident from "../components/Gradient"; 
+import Gradient from "../components/Gradient";
 
 
-class Expenses extends Component {
+// this isolates the layout code JSX to JUST the expenses spent portion 
+
+
+
+class Spent extends Component {
   state = {
     expenses: [],
     amount: "",
@@ -53,47 +58,23 @@ class Expenses extends Component {
         .catch(err => console.log(err));
     }
   };
-
+  
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>Please enter the amount</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.amount}
-                onChange={this.handleInputChange}
-                name="amount"
-                placeholder="amount (required)"
-              />
-              <Input
-                value={this.state.reason}
-                onChange={this.handleInputChange}
-                name="reason"
-                placeholder="reason (required)"
-              />
-              <TextArea
-                value={this.state.noteToSelf}
-                onChange={this.handleInputChange}
-                name="noteToSelf"
-                placeholder="Note (Optional)"
-              />
-              <FormBtn
-                disabled={!(this.state.reason && this.state.amount)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Expense
-              </FormBtn>
-            </form>
-          </Col>
-          {/* THIS is what needs to be rendered in the seperate page to be rendered at NoMatch.js */}
+      
+         
           <Col size="md-12 sm-12">
-            <Jumbotron>
+          
+        
+         <Gradient> My Expenses :
+
+
+           
+         </Gradient>
+         <Jumbotron>
               <h1>Expenses On My List</h1>
-            </Jumbotron>
+        </Jumbotron>
+        
             {this.state.expenses.length ? (
               <List>
                 {this.state.expenses.map(expense => (
@@ -113,10 +94,9 @@ class Expenses extends Component {
               <h3>No Results to Display</h3>
             )}
           </Col>
-        </Row>
-      </Container>
+       
     );
   }
 }
-
-export default Expenses;
+// Route or some part of the back end needs to be added here for this part of the component only to render in a seperate page 
+export default Spent;

@@ -5,14 +5,3 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 
 
-db.reactexpenselist.aggregate({
-    $group: {
-        _id: '',
-        amount: { $sum: '$amount' }
-    }
-}, {
-    $project: {
-        _id: 0,
-        amount: '$amount'
-    }
-})

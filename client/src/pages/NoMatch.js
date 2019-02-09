@@ -1,39 +1,20 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
+import Dropdown from "../components/DropdownMenu";
 
 function NoMatch() {
-  
   return (
     <Container fluid>
       <Row>
-        <Col size="md-4">
-          
-            <Card 
-            title="This is my first card"
-            subtitle="This is the subtitle"
-            text="This is the text"
-            />
-          
-        </Col>
-        <Col size="md-4">
-          
-            <Card 
-            title="This is my second card"
-            subtitle="This is the subtitle"
-            text="This is the text"
-            />
-          
-        </Col>
-        <Col size="md-4">
-          
-            <Card 
-            title="This is my third card"
-            subtitle="This is the subtitle"
-            text="This is the text"
-            />
-          
+        <Col size="md-12">
+          <Jumbotron>
+            <h1 className="text-center">404 Page Not Found</h1>
+            <h1 className="text-center">
+              
+            </h1>
+            <Dropdown/>
+          </Jumbotron>
         </Col>
       </Row>
     </Container>

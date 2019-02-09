@@ -1,5 +1,24 @@
 const db = require("../models");
 
+//================================================================================
+//We can AGGREGATE in here.. db.reactexpenselist.aggregate(req.params.id)
+
+// db.reactexpenselist.aggregate(
+//   [
+//      {
+//        $group : {
+//           _id : null,
+//           amount: { $sum: { "$amount" } }
+//        }
+//      }
+//   ]
+// )
+
+// The result would be this==================
+
+// { "_id" : null, "totalPrice" : 290, "averageQuantity" : 8.6, "count" : 5 }
+//=====================================================================================
+
 // Defining methods for the expensesController
 module.exports = {
   findAll: function(req, res) {

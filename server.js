@@ -1,7 +1,7 @@
 const express = require("express");
 
 // require for Facebook login
-const path = require("path");
+// const path = require("path");
 
 const mongoose = require("mongoose");
 const routes = require("./routes");

@@ -17,4 +17,5 @@ export default {
   saveExpense: function(expenseData) {
     return axios.post("/api/expenses", expenseData);
   }
+  
 };

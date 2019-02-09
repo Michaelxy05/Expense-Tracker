@@ -4,7 +4,8 @@ import Expenses from "./pages/Expenses";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Google from "../src/components/Google";
+import Login from "./pages/Signin";
+
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/expenses" component={Expenses} />
           <Route exact path="/expenses/:id" component={Detail} />
           <Route component={NoMatch} />
+          
         </Switch>
       </div>
     </Router>

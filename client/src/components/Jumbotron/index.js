@@ -1,14 +1,14 @@
 import React from "react";
+import Index from "./style.css"
 
-function Jumbotron({ children }) {
+
+function Jumbotorn () {
   return (
-    <div
-      style={{ height: 100, clear: "both", paddingTop: 120, textAlign: "center" }}
-      className="jumbotron"
-    >
-      {children}
+    <div className="align-items-center bg-header jumbotron header-hgt header-pad head-mar-top nav-shadow neon text-center yx-auto text-center">
+      <h1> Please enter the amount</h1>
     </div>
-  );
-}
+   
+  )
+};
 
-export default Jumbotron;
+export default Jumbotorn;

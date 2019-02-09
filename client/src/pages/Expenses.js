@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import Login from '../components/Login/signIn.jsx';
 
 
 class Expenses extends Component {
@@ -57,6 +58,7 @@ class Expenses extends Component {
   render() {
     return (
       <Container fluid>
+      <Login></Login>
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -89,29 +91,7 @@ class Expenses extends Component {
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-12 sm-12">
-            <Jumbotron>
-              <h1>Expenses On My List</h1>
-            </Jumbotron>
-            {this.state.expenses.length ? (
-              <List>
-                {this.state.expenses.map(expense => (
-                  <ListItem key={expense._id}>
-                    <Link to={"/expenses/" + expense._id}>
-                      <strong>
-                      <a> $ {expense.amount} used for {expense.reason} </a>
-                      <br></br>
-                      <a> {expense.date} </a>
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteExpense(expense._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
+         
         </Row>
       </Container>
     );

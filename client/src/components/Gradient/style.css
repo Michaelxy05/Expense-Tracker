@@ -1,0 +1,27 @@
+body, html{
+    margin: 0 ; 
+    padding: 0; 
+    background: linear-gradient(312deg, rgba(255,74,243,1) 0%, rgba(255,74,243,1) 53%, rgba(128,0,128,1) 100%); 
+    /* Just a test to see how this will affect the other components */
+}
+
+.graident-container{
+   background: linear-gradient(312deg, rgba(255,74,243,1) 0%, rgba(255,74,243,1) 53%, rgba(128,0,128,1) 100%); 
+   margin: 4px ; 
+   padding: 20px ; 
+   opacity: 0.1; 
+   display: flex; 
+   
+}
+.graident-container h1{
+    display: block ; 
+}
+.input-control{
+    width: 100%; 
+    margin: auto ; 
+    border: 2px solid blue ; 
+
+}
+.input-control:focus{
+    border: 2px solid black ; 
+}

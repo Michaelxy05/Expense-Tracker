@@ -8,12 +8,10 @@ function Nav() {
       <a className="navbar-brand" href="/">
         Expense Tracking 
       </a>
-     
-      <a className="navbar-brand" href="/Detail"/>
       <a className="navbar-brand" href="/Expenses">
         List of my Expenses 
       </a>
-      <a className="navbar-brand" href="/List">
+      <a className="navbar-brand" href="/Detail">
         Detail 
       </a>
     </nav>

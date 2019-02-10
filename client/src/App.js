@@ -4,7 +4,6 @@ import Expenses from "./pages/Expenses";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Login from "./pages/Signin";
 
 function App() {
   return (

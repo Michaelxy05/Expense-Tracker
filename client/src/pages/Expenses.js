@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
-import Login from '../components/Login/signIn.jsx';
+import SignIn from '../components/Login/signIn.jsx';
 import Radio from "../components/ToggleBtn";
 import Dropdown from "../components/DropdownMenu"
 
@@ -60,7 +60,7 @@ class Expenses extends Component {
   render() {
     return (
       <Container fluid>
-      <Login></Login>
+      <SignIn></SignIn>
         <Row>
           <Col size="md-12">
             <Jumbotron>

@@ -4,16 +4,12 @@
     display: block;
   margin-left: auto;
   margin-right: auto;
-    color: white;
-    width: 81%;
+    color: rgb(227, 221, 221);
+    width: 80%;
   
     
    }
-   body {
-    margin: 0;
-    
-    background-color: rgb(59, 90, 120);
-  }
+  
   
   g, path {
     transform-origin: 240px 244px;  

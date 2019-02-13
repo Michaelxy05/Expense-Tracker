@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
-import Login from '../components/Login/signIn.jsx';
-
+import SignIn from '../components/Login/signIn.jsx';
+import Radio from "../components/ToggleBtn";
+import Dropdown from "../components/DropdownMenu"
+import Nav from "../components/Nav";
 
 class Expenses extends Component {
   state = {
@@ -58,30 +60,33 @@ class Expenses extends Component {
   render() {
     return (
       <Container fluid>
-      <Login></Login>
+     <Nav />
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>Please enter the amount</h1>
             </Jumbotron>
             <form>
+            <Dropdown/>
               <Input
                 value={this.state.amount}
                 onChange={this.handleInputChange}
                 name="amount"
-                placeholder="amount (required)"
+                placeholder="Enter the amount (Required)"
               />
+              <Radio/>
               <Input
                 value={this.state.reason}
                 onChange={this.handleInputChange}
                 name="reason"
-                placeholder="reason (required)"
+                placeholder="Enter reason/item (Required)"
               />
+
               <TextArea
                 value={this.state.noteToSelf}
                 onChange={this.handleInputChange}
                 name="noteToSelf"
-                placeholder="Note (Optional)"
+                placeholder="Enter comment here for future reference (Optional)"
               />
               <FormBtn
                 disabled={!(this.state.reason && this.state.amount)}

@@ -4,16 +4,20 @@ import Expenses from "./pages/Expenses";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Login from "./pages/Signin";
+import SignIn from "./components/Login/signIn";
+import "./App.css"
+
 
 function App() {
   return (
     <Router>
-      <div>
-        <Nav />
+      <div className="background">
+        
         <Switch>
-          <Route exact path="/" component={Expenses} />
+          <Route exact path="/" component={SignIn}/>
+         
           <Route exact path="/expenses" component={Expenses} />
+
           <Route exact path="/expenses/:id" component={Detail} />
           <Route component={NoMatch} />
           

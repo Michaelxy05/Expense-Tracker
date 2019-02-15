@@ -6,13 +6,13 @@ class Radio extends React.Component {
     super(props);
 
     this.state = {
-      selectedRadio: 'public'
+      payType: 'public'
     };
   }
 
   handleRadioChange = (event) => {
     this.setState({
-      selectedRadio: event.currentTarget.value
+      payType: event.currentTarget.value
     })
   };
 
@@ -24,7 +24,7 @@ class Radio extends React.Component {
             type="radio"
             name="paidWith"
             value="cash"
-            checked={this.state.selectedRadio === 'cash'}
+            checked={this.state.payType === 'cash'}
             onChange={this.handleRadioChange}
           />
           <label htmlFor="cash">Cash <i class="fas fa-money-bill-alt"></i></label>
@@ -34,7 +34,7 @@ class Radio extends React.Component {
             type="radio"
             name="paidWith"
             value="card"
-            checked={this.state.selectedRadio === 'card'}
+            checked={this.state.payType === 'card'}
             onChange={this.handleRadioChange}
           />
           <label htmlFor="card">Card <i class="fas fa-credit-card"></i></label>

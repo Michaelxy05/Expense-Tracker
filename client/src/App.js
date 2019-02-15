@@ -5,7 +5,7 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Spent from "./pages/Spent";
-
+import Summary from "./pages/Summary"
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           {/* /expenses needs to render the "what has been spend col-md-12 in its own page , see screenshot" */}
           <Route exact path="/expenses/:id" component={Detail} />
           <Route exact path="/spent" component={Spent} />  
+          <Route exact path="/summary" component={Summary} /> 
           <Route component={NoMatch} />
       
         </Switch>

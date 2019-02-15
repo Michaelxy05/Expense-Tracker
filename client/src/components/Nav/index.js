@@ -16,10 +16,10 @@ function Nav() {
       <a className="navbar-brand" href="/Detail">
         Detail 
       </a> */}
-      <a className="navbar-brand" href="/Spent" target="_blank">
+      <a className="navbar-brand" href="/Spent">
         List of my Expenses 
       </a>
-      <a className="navbar-brand" href="" target="_blank">
+      <a className="navbar-brand" href="/Summary">
         Summary
       </a>
     </nav>

@@ -15,6 +15,7 @@ class Layout extends React.Component {
         datasets: [
           {
             label: "Total money spent",
+            // {this.state.expense.catagory}
             data: [12, 19, 3, 40],
             backgroundColor: [
               "rgba(255, 99, 132)",

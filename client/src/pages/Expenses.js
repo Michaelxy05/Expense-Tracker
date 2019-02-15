@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+// import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
-import SignIn from '../components/Login/signIn.jsx';
+// import SignIn from '../components/Login/signIn.jsx';
 import Radio from "../components/ToggleBtn";
 import Dropdown from "../components/DropdownMenu"
 
@@ -14,7 +14,9 @@ import Dropdown from "../components/DropdownMenu"
 class Expenses extends Component {
   state = {
     expenses: [],
+    //  catagory: "",
     amount: "",
+     payType: "",
     reason: "",
     noteToSelf: ""
   };
@@ -26,7 +28,8 @@ class Expenses extends Component {
   loadExpenses = () => {
     API.getExpenses()
       .then(res =>
-        this.setState({ expenses: res.data, amount: "", reason: "", noteToSelf: "" })
+        
+        this.setState({ expenses: res.data, amount: "", payType: "", reason: "", noteToSelf: "" })
       )
       .catch(err => console.log(err));
   };
@@ -48,7 +51,9 @@ class Expenses extends Component {
     event.preventDefault();
     if (this.state.amount && this.state.reason) {
       API.saveExpense({
+        //  catagory: this.state.catagory,
         amount: this.state.amount,
+         payType: this.state.payType,
         reason: this.state.reason,
         noteToSelf: this.state.noteToSelf
       })
@@ -60,21 +65,29 @@ class Expenses extends Component {
   render() {
     return (
       <Container fluid>
-      <SignIn></SignIn>
+      {/* <SignIn></SignIn> */}
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>Please enter the amount</h1>
             </Jumbotron>
             <form>
-            <Dropdown/>
+              {/* <Dropdown
+                value={this.state.catagory}
+                onChange={this.handleInputChange}
+                name="catagory"
+              /> */}
               <Input
                 value={this.state.amount}
                 onChange={this.handleInputChange}
                 name="amount"
                 placeholder="Enter the amount (Required)"
               />
-              <Radio/>
+              <Radio
+                value={this.state.payType}
+                onChange={this.handleInputChange}
+                name="payType"
+              />
               <Input
                 value={this.state.reason}
                 onChange={this.handleInputChange}

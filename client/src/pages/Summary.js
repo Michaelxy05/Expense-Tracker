@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import Layout from "../components/Chart";
+// import { List, ListItem } from "../components/List";
+// import Layout from "../components/Chart";
+var Chart = require("chart.js");
 
 
 class Summary extends Component {
@@ -16,8 +17,29 @@ class Summary extends Component {
     };
 
     componentDidMount() {
-        this.loadExpenses();
+        const node = this.node;
+
+        var myChart = new Chart(node, {
+            type: "pie", //==bar==line==radar==polararea==doughnut==
+            data: {
+                labels: ["Bills", "Gas", "Food", "Other"],
+                datasets: [
+                    {
+                        label: "Total money spent",
+                        // {this.state.expense.catagory}
+                        data: [12, 19, 3, 40],
+                        backgroundColor: [
+                            "rgba(255, 99, 132)",
+                            "rgba(54, 162, 235)",
+                            "rgba(255, 206, 86)",
+                            "rgba(255, 206, 205)"
+                        ]
+                    }
+                ]
+            }
+        });
     }
+
 
     loadExpenses = () => {
         API.getExpenses()
@@ -27,31 +49,8 @@ class Summary extends Component {
             .catch(err => console.log(err));
     };
 
-    deleteExpense = id => {
-        API.deleteExpense(id)
-            .then(res => this.loadExpenses())
-            .catch(err => console.log(err));
-    };
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        if (this.state.amount && this.state.reason) {
-            API.saveExpense({
-                amount: this.state.amount,
-                reason: this.state.reason,
-                noteToSelf: this.state.noteToSelf
-            })
-                .then(res => this.loadExpenses())
-                .catch(err => console.log(err));
-        }
-    };
 
     render() {
         return (
@@ -59,19 +58,12 @@ class Summary extends Component {
                 <Jumbotron>
                     <h1>Summary of my expenses</h1>
                 </Jumbotron>
-                {this.state.expenses.length ? (
-                    <List>
-                        {this.state.expenses.map(expense => (
-                            <ListItem key={expense._id}>
-                                <Link to={"/expenses/" + expense._id}>
-                                    <Layout />
-                                </Link>
-                            </ListItem>
-                        ))}
-                    </List>
-                ) : (
-                        <h3>No Results to Display</h3>
-                    )}
+                <div>
+                    <canvas
+                        style={{ width: 800, height: 300 }}
+                        ref={node => (this.node = node)}
+                    />
+                </div>
             </Col>
         );
     }

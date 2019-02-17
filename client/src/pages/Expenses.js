@@ -1,22 +1,18 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
-// import SignIn from '../components/Login/signIn.jsx';
-import Radio from "../components/ToggleBtn";
-import Dropdown from "../components/DropdownMenu"
+// import Radio from "../components/ToggleBtn";
+// import Dropdown from "../components/DropdownMenu"
 
 
 class Expenses extends Component {
   state = {
     expenses: [],
-    //  catagory: "",
+    catagory: "",
     amount: "",
-     payType: "",
+    payType: "",
     reason: "",
     noteToSelf: ""
   };
@@ -28,8 +24,8 @@ class Expenses extends Component {
   loadExpenses = () => {
     API.getExpenses()
       .then(res =>
-        
-        this.setState({ expenses: res.data, amount: "", payType: "", reason: "", noteToSelf: "" })
+
+        this.setState({ expenses: res.data, catagory: "", amount: "", payType: "", reason: "", noteToSelf: "" })
       )
       .catch(err => console.log(err));
   };
@@ -43,7 +39,11 @@ class Expenses extends Component {
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
+      // payType is the Radio Input
+      // payType: event.currentTarget.value,
+      // value is the Dropdown Menu
+      // value: event.target.value
     });
   };
 
@@ -51,9 +51,9 @@ class Expenses extends Component {
     event.preventDefault();
     if (this.state.amount && this.state.reason) {
       API.saveExpense({
-        //  catagory: this.state.catagory,
+        catagory: this.state.catagory,
         amount: this.state.amount,
-         payType: this.state.payType,
+        payType: this.state.payType,
         reason: this.state.reason,
         noteToSelf: this.state.noteToSelf
       })
@@ -65,13 +65,27 @@ class Expenses extends Component {
   render() {
     return (
       <Container fluid>
-      {/* <SignIn></SignIn> */}
+        {/* <SignIn></SignIn> */}
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>Please enter the amount</h1>
             </Jumbotron>
+            {/* Dropdown Menu Here!!!!!!!!!!!!!!!!!!!!!!!!================================= */}
+            {/* =========================================================================== */}
             <form>
+              <label>
+                <i class="fas fa-list-ul"></i>Catagory
+            <br></br>
+                <select value={this.state.value} onChange={this.handleInputChange} name="catagory">
+                  <option value="bills">Bills</option>
+                  <option value="gas">Gas</option>
+                  <option value="food">Food</option>
+                  <option value="other">Other...</option>
+                </select>
+              </label>
+              {/* Dropdown Menu Ends Here!!!!!!!!!!!!!!!!==================================== */}
+              {/* =========================================================================== */}
               {/* <Dropdown
                 value={this.state.catagory}
                 onChange={this.handleInputChange}
@@ -83,11 +97,37 @@ class Expenses extends Component {
                 name="amount"
                 placeholder="Enter the amount (Required)"
               />
-              <Radio
+              {/* Radio Input here!!!!!!!!!================================================== */}
+              {/* =========================================================================== */}
+              <div className="radio-row">
+                <div className="input-row">
+                  <input
+                    type="radio"
+                    name="payType"
+                    value="cash"
+                    checked={this.state.payType === 'cash'}
+                    onChange={this.handleInputChange}
+                  />
+                  <label htmlFor="cash">Cash <i class="fas fa-money-bill-alt"></i></label>
+                </div>
+                <div className="input-row">
+                  <input
+                    type="radio"
+                    name="payType"
+                    value="card"
+                    checked={this.state.payType === 'card'}
+                    onChange={this.handleInputChange}
+                  />
+                  <label htmlFor="card">Card <i class="fas fa-credit-card"></i></label>
+                </div>
+              </div>
+              {/* Radio Input Ends Here!!!!!!!!!!!!!!!!!!!!================================== */}
+              {/* =========================================================================== */}
+              {/* <Radio
                 value={this.state.payType}
                 onChange={this.handleInputChange}
                 name="payType"
-              />
+              /> */}
               <Input
                 value={this.state.reason}
                 onChange={this.handleInputChange}
@@ -109,7 +149,7 @@ class Expenses extends Component {
               </FormBtn>
             </form>
           </Col>
-         
+
         </Row>
       </Container>
     );

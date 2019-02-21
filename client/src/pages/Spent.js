@@ -64,13 +64,16 @@ class Spent extends Component {
           <h1>Expenses On My List</h1>
         </Jumbotron>
 
+        <h1 className="text-center">List of my Expenses</h1>
+
         {this.state.expenses.length ? (
           <List>
             {this.state.expenses.map(expense => (
               <ListItem key={expense._id}>
                 <Link to={"/expenses/" + expense._id}>
                   <strong>
-                    <a> $ {expense.amount} used for {expense.reason} </a>
+                    <h2> $ {expense.amount} used for {expense.reason} </h2>
+                    <h2> Purchased with {expense.payType} </h2>
                     <br></br>
                     <a> {expense.date} </a>
                   </strong>

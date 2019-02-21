@@ -58,6 +58,7 @@ class Summary extends Component {
                 <Jumbotron>
                     <h1>Summary of my expenses</h1>
                 </Jumbotron>
+                <h1 className="text-center">Summary of my expenses</h1>
                 <div>
                     <canvas
                         style={{ width: 800, height: 300 }}

@@ -74,7 +74,9 @@ class Expenses extends Component {
             </Jumbotron>
             {/* Dropdown Menu Here!!!!!!!!!!!!!!!!!!!!!!!!================================= */}
             {/* =========================================================================== */}
+
             <form>
+            <h1 className="text-center">Please enter the amount</h1>
               <label>
                 <i className="fas fa-list-ul"></i>Catagory
             <br></br>

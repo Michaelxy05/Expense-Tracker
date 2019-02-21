@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import "../components/MainCSS/signin.css"
 // import Radio from "../components/ToggleBtn";
 // import Dropdown from "../components/DropdownMenu"
 
@@ -75,7 +76,7 @@ class Expenses extends Component {
             {/* =========================================================================== */}
             <form>
               <label>
-                <i class="fas fa-list-ul"></i>Catagory
+                <i className="fas fa-list-ul"></i>Catagory
             <br></br>
                 <select value={this.state.value} onChange={this.handleInputChange} name="catagory">
                   <option value="bills">Bills</option>
@@ -152,6 +153,7 @@ class Expenses extends Component {
 
         </Row>
       </Container>
+    
     );
   }
 }

@@ -1,2 +1,2 @@
-# Stephanie Expense-Tracker 
+# Master Expense-Tracker 
 Master Branch for final project
